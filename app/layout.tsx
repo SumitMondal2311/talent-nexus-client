@@ -1,5 +1,7 @@
 import { JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
+import { Toaster } from 'sonner';
+import AuthProvider from '@/components/auth-provider';
 
 const spaceGrotesk = Space_Grotesk({
     variable: '--font-space-grotesk',
@@ -24,7 +26,8 @@ export default function RootLayout({
             <body
                 className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} text-sm font-sans`}
             >
-                {children}
+                <AuthProvider>{children}</AuthProvider>
+                <Toaster position="top-center" />
             </body>
         </html>
     );
